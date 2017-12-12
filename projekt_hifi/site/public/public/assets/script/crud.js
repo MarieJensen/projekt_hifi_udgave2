@@ -10,7 +10,7 @@
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function henteData(type = 0) {
-    fetch('http://188.226.158.18:3000/produkter', {  // API'et/routet, fetch udskriver API'et
+    fetch('http://188.226.158.18:3001/produkter', {  // API'et/routet, fetch udskriver API'et
         'method': 'GET', // fetch har get metoden
         'mode': 'cors',
         'cache': 'default'
@@ -50,7 +50,7 @@ function henteData(type = 0) {
                     <td>${item.pris}</td>
                     <td>${item.type}</td>
                     <td>${item.producent}</td>
-                    <td><img src="http://188.226.158.18:3000/images/${item.billede}"></td>
+                    <td><img src="http://188.226.158.18:3001/images/${item.billede}"></td>
                   </tr>
                   
                 </table>
@@ -74,7 +74,7 @@ function henteData(type = 0) {
 // Visning af et produkt med opdatering af eksisterende produkter på admin siden
 
 function henteprodukt(id) {
-    let url = 'http://188.226.158.18:3000/produkt'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkt'; // API'et/routet
     if (id != undefined) {
         url += '/' + id;
     }
@@ -96,7 +96,7 @@ function henteprodukt(id) {
                 // tager fat i det element som har id'et content2 i html, her vises et produkt
                 document.getElementById('content2').innerHTML += `
                 <div><h3>${item.navn}</h3>
-                <div><img src="http://188.226.158.18:3000/images/${item.billede}"></div>
+                <div><img src="http://188.226.158.18:3001/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Beskrivelse: ${item.beskrivelse}</p>
                 </div><hr>
@@ -175,7 +175,7 @@ function henteprodukt(id) {
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
-                        let request = new Request('http://188.226.158.18:3000/produkt/' + id, init); // API'et/routet, init er variablen fra ovenover. 
+                        let request = new Request('http://188.226.158.18:3001/produkt/' + id, init); // API'et/routet, init er variablen fra ovenover. 
                         console.log('hhhhhh');
                         fetch(request) // fetch udskriver API'et
                             .then(response => { console.log(response) }).catch(err => { console.log(err) }); 
@@ -212,7 +212,7 @@ document.querySelector('#gemm').addEventListener('click', (event2) => { // .quer
     } else if (producent_id == "") {
         alert("Angiv en producent");
     } else {
-        let url = `http://188.226.158.18:3000/produkt/`;
+        let url = `http://188.226.158.18:3001/produkt/`;
         let form = document.querySelector('#produktform form');
         let data = new FormData(form);
 
@@ -258,7 +258,7 @@ document.querySelector('#gemmm').addEventListener('click', (event2) => { // .que
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://188.226.158.18:3000/opretkategori', init); // API'et/routet, init er variablen fra ovenover.
+        let request = new Request('http://188.226.158.18:3001/opretkategori', init); // API'et/routet, init er variablen fra ovenover.
         console.log('hhhhhh');
         fetch(request) // fetch udskriver API'et
             .then(response => { console.log(response) }).catch(err => { console.log(err) });
@@ -275,7 +275,7 @@ document.querySelector('#gemmm').addEventListener('click', (event2) => { // .que
 function sletprodukt(id) {
     if (confirm('Er du sikker på at du vil slette?')) { // besked til brugeren
 
-        let url = 'http://188.226.158.18:3000/produkt'; // API'et/routet
+        let url = 'http://188.226.158.18:3001/produkt'; // API'et/routet
         if (id != undefined) {
             url += '/' + id;
         }
