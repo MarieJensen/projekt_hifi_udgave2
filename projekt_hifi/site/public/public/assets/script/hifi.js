@@ -36,7 +36,7 @@ window.addEventListener("resize", equalColumns, true);
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function hentData(type = 0) {
-    let url = 'http://188.226.158.18:3000/produkter'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkter'; // API'et/routet
     if (type > 0) url += '/' + type;
     fetch(url) // fetch udskriver API'et
         .then((response) => {
@@ -56,7 +56,7 @@ function hentData(type = 0) {
                 // tager fat i det element som har id'et content i html
                 document.getElementById('content').innerHTML += ` 
                     <div class="col-md-3"><h3>${item.navn}</h3>
-                    <div><img src="http://188.226.158.18:3000/images/${item.billede}"></div>
+                    <div><img src="http://188.226.158.18:3001/images/${item.billede}"></div>
                     <p>Pris: ${item.pris} kr.</p>
                     <p>Kategori: ${item.type}</p>
                     <p>Producent: ${item.producent}</p>
@@ -84,7 +84,7 @@ document.querySelector('#soge').addEventListener('input', (event) => { // tager 
 })
 
 function sogebar(type) {
-    let url = 'http://188.226.158.18:3000/produkter/sog'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkter/sog'; // API'et/routet
     url += '/' + type;
     fetch(url) // fetch udskriver API'et
         .then((response) => {
@@ -100,7 +100,7 @@ function sogebar(type) {
                 // tager fat i det element som har id'et content i html
                 document.getElementById('content').innerHTML += `
                     <div><h3>${item.navn}</h3>
-                    <div><img src="http://188.226.158.18:3000/images/${item.billede}"></div>
+                    <div><img src="http://188.226.158.18:3001/images/${item.billede}"></div>
                     <p>Pris: ${item.pris} kr.</p>
                     <p>Kategori: ${item.kategori}</p>
                     <p><a onclick="hentprodukt(${item.ID})"> Læs mere</a><br><br><br></p>
@@ -117,7 +117,7 @@ function sogebar(type) {
 // Visning af et produkt på produkt siden
 
 function hentprodukt(id) {
-    let url = 'http://188.226.158.18:3000/produkt'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkt'; // API'et/routet
     if (id != undefined) {
         url += '/' + id;
     }
@@ -139,7 +139,7 @@ function hentprodukt(id) {
                 // tager fat i det element som har id'et content i html
                 document.getElementById('content').innerHTML += `
                 <div><h3>${item.navn}</h3>
-                <div><img src="http://188.226.158.18:3000/images/${item.billede}"></div>
+                <div><img src="http://188.226.158.18:3001/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Beskrivelse: ${item.beskrivelse}</p>
                 </div><hr>
