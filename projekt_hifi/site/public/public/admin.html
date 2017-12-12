@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HIFI butik</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/stylesheet/style.css">
+</head>
+
+<body>
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="logo">
+          <a class="navbar-brand ostt" href="index.html">
+            <span class="glyphicon glyphicon-headphones"></span> HI-FI KLUBBEN</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-2">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li id="active">
+              <a href="index.html">Forside</a>
+            </li>
+            <li>
+              <a href="produkter.html">Produkter</a>
+            </li>
+            <li>
+              <a href="omos.html">Om os</a>
+            </li>
+            <li>
+              <a href="kontakt.html">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+  </nav>
+
+
+
+  <main>
+    <!--........................................Main....................................... -->
+
+    <div class="container">
+
+      <h1 class="center ryknedd col-md-12 col-xs-12">Produkt Administration</h1>
+      <div class="form-group col-md-offset-12">
+        <button class="btn btn-danger" id="logud" onclick="logud()">Log ud</button>
+      </div>
+
+      <div class="row">
+
+        <div class="lige_kolonner col-md-6  col-xs-12">
+          <h3>Opret Produkter </h3>
+          <div id="produktform">
+          <form enctype="multipart/form-data">
+            <input class="col-md-12" name="navn" type="name" id="navn" placeholder="Produkt Navn">
+            <input class="col-md-12" name="pris" type="pris" id="pris" placeholder="Vælg Pris">
+            <textarea class="col-md-12 ryk" name="beskrivelse" type="beskrivelse" id="beskrivelse" placeholder="Beskrivelse"></textarea>
+
+            <select name="kategori_id" id="kategori_id">
+              <option>Vælg kategori</option>
+              <option value="1">CD afspillere</option>
+              <option value="2">DVD afspillere</option>
+              <option value="3">Effektforstærkere</option>
+              <option value="4">Forforstærkere</option>
+              <option value="5">Højtalere</option>
+              <option value="6">Int. Forstærkere</option>
+              <option value="7">Pladespillere</option>
+              <option value="8">Rørforstærkere</option>
+            </select>
+            <br>
+            <br>
+
+            <select name="producent_id" id="producent_id">
+              <option>Vælg producent</option>
+              <option value="1">Creek Audio Ltd</option>
+              <option value="2">Exposure</option>
+              <option value="3">Parasound</option>
+              <option value="4">Manley</option>
+              <option value="5">Pro-ject Audio systems</option>
+              <option value="6">Bösendorfer</option>
+              <option value="7">Epos Ltd</option>
+              <option value="8">HArbeth Loudspeakers</option>
+              <option value="9">Jolida</option>
+
+            </select>
+            <br>
+            <br>
+           
+            <input class="col-md-12 ingenfarve" name="billede" type="file" id="billede" placeholder="Vælg Billede">
+
+            <input class="col-md-12 ryk indsendknap" type="submit" id="gemm">
+
+          </form>
+</div>
+        </div>
+
+        <div class="col-md-6 col-xs-12">
+
+            <h3>Opret Kategori </h3>
+            <form>
+              <input class="col-md-12" name="kategori" type="name" id="kategori" placeholder="Kategori navn">
+              <input class="col-md-12 ryknedd indsendknap" type="submit" id="gemmm">
+            </form>
+         
+        </div>
+
+
+        <div class="page-header col-md-12 col-xs-12">
+            
+            <h1>Produkter</h1>
+        <div id="content2" class="rykned2"> </div>          
+        </div>
+
+        
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script src="./assets/script/crud.js"></script>
+  <script src="./assets/script/logud.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

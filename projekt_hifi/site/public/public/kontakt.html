@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HIFI butik</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/stylesheet/style.css">
+
+
+</head>
+
+<body>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="logo">
+          <a class="navbar-brand ostt" href="index.html">
+            <span class="glyphicon glyphicon-headphones"></span> HI-FI KLUBBEN</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-2">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Forside</a>
+            </li>
+            <li>
+              <a href="produkter.html">Produkter</a>
+            </li>
+            <li>
+              <a href="omos.html">Om os</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+            <li>
+              <a href="login.html">
+                <span class="glyphicon glyphicon-user logg"></span> Login</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-shopping-cart logg"></span>
+              </a>
+            </li>
+            <li class="col-md-1">
+              <input class="søg" type="text" name="search" placeholder="Søg...">
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="rykned3">
+    <!--........................................Main....................................... -->
+
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3 col-xs-12">
+        <h3>Kontakt Os </h3>
+        <form onsubmit="return validate(this)">
+          <input class="col-md-12" required name="navn" type="name" id="navn" placeholder="Navn">
+          <input class="col-md-12" required name="email" type="email" id="email" placeholder="Email">
+          <textarea class="col-md-12" required id="besked" name="besked" placeholder="Skriv til os..."></textarea>
+          <input class="col-md-12" type="submit" id="gem">
+        </form>
+      </div>
+    </div>
+
+    <div class="container rykned4">
+      <div class="col-md-4 col-xs-12">
+        <p class="center">
+          <strong>
+            <span class="glyphicon glyphicon-earphone"></span> Hi-Fi Klubben Kundeservice </strong>
+        </p>
+        <p>
+          Her kan du få svar på generelle spørgsmål omkring Hi-Fi Klubben og vores produkter.
+          <br> Tlf: 70 80 90 00, mandag-fredag 9-18, lørdag 10-15.</p>
+      </div>
+
+      <div class="col-md-4 col-xs-12">
+        <p class="center">
+          <strong>
+            <span class="glyphicon glyphicon-shopping-cart"></span> Hi-Fi Klubbens Netbutik</strong>
+        </p>
+        <p>
+          Ønsker du at handle i vores netbutik, eller har du spørgsmål omkring din ordre, kan du kontakte Hi-Fi Klubben Netbutik.
+          <br> Tlf: 70 80 90 00, mandag-torsdag 9-17, fredag 9-16.</p>
+      </div>
+
+      <div class="col-md-4 col-xs-12">
+        <p class="center">
+          <strong>
+            <span class="glyphicon glyphicon-globe"></span> Hi-Fi Klubbens butikker</strong>
+        </p>
+        <p>
+          Her finder du adresse, telefonnummer, e-mail og åbningstider på alle Hi-Fi Klubbens butikker i Danmark.
+          <br>
+        </p>
+        <a href="https://www.hifiklubben.dk/butikker/">Gå til Hi-Fi Klubbens butikker</a>
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+
+  <footer>
+    <!--................................Footer................................... -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-2 col-xs-12">
+          <br>
+          <h4>
+            <span class="glyphicon glyphicon-home"></span> Adresse</h4>
+          <br>
+          <p> HI-FI klubben
+            <br> Dalgas Boulevard 242
+            <br> 2000 Frederiksberg</p>
+        </div>
+
+        <div class="col-md-3 col-xs-12">
+          <br>
+          <h4>
+            <span class="glyphicon glyphicon-time"></span> Åbningstider </h4>
+          <br>
+          <p>
+            Torsdag 10.00 - 17.30
+            <br> Fredag 10.00 - 17.30
+            <br> Lørdag 09.00 - 13.00</p>
+        </div>
+
+
+        <div class="col-md-3 col-xs-12">
+          <br>
+          <h4>
+            <span class="glyphicon glyphicon-earphone"></span> Telefon </h4>
+          <br>
+          <p>
+            +45 34562322
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="./assets/script/formular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

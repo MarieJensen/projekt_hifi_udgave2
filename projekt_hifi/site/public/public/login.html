@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HIFI butik</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/stylesheet/style.css">
+
+
+</head>
+
+<body class="baggrundsfarve">
+  <div id="status"></div>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="logo">
+          <a class="navbar-brand ostt" href="index.html">
+            <span class="glyphicon glyphicon-headphones"></span> HI-FI KLUBBEN</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-2">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Forside</a>
+            </li>
+            <li>
+              <a href="produkter.html">Produkter</a>
+            </li>
+            <li>
+              <a href="omos.html">Om os</a>
+            </li>
+            <li>
+              <a href="kontakt.html">Kontakt</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-user logg"></span> Login</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-shopping-cart logg"></span>
+              </a>
+            </li>
+            <li class="col-md-1">
+              <input class="søg" type="text" name="search" placeholder="Søg...">
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="rykned3 rykkk">
+    <!--........................................Main....................................... -->
+
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3 col-xs-12">
+        <h3 class="loginrykned">Log ind / registrer dig </h3>
+        <form class="loginForm" data-toggle="validator" role="form" name="login">
+          <div class="form-group" id="input-login">
+            <label for="inputName" class="control-label">
+              <span class="glyphicon glyphicon-user"></span> Brugernavn</label>
+            <input type="text" class="form-control" id="inputName" id="username" name="username" placeholder="Brugernavn" required>
+          </div>
+          <br>
+          <div class="form-group" id="input-login">
+            <label for="inputPassword" class="control-label">
+              <span class="glyphicon glyphicon-lock"></span> Password</label>
+            <input type="password" class="form-control" id="inputPassword" id="password" name="password" placeholder="Password" required>
+          </div>
+
+          <br>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" onclick="check(this.form)" value="login">Log ind</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+
+
+  </main>
+
+
+
+  <footer>
+    <!--................................Footer................................... -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-2 col-xs-12">
+          <br>
+          <h4>
+            <span class="glyphicon glyphicon-home"></span> Adresse</h4>
+          <br>
+          <p> HI-FI klubben
+            <br> Dalgas Boulevard 242
+            <br> 2000 Frederiksberg</p>
+        </div>
+
+        <div class="col-md-3 col-xs-12">
+          <br>
+          <h4>
+            <span class="glyphicon glyphicon-time"></span> Åbningstider </h4>
+          <br>
+          <p>
+            Torsdag 10.00 - 17.30
+            <br> Fredag 10.00 - 17.30
+            <br> Lørdag 09.00 - 13.00</p>
+        </div>
+
+
+        <div class="col-md-3 col-xs-12">
+          <br>
+          <h4>
+            <span class="glyphicon glyphicon-earphone"></span> Telefon </h4>
+          <br>
+          <p>
+            +45 34562322
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="./assets/script/loginform.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
