@@ -11,11 +11,11 @@ module.exports = (app) => { // betyder at andre filer kan hente funktionen vha. 
             db.execute('SELECT id, password FROM users WHERE username = ?', [req.body.username], (selError, rows) => {
                 if (passwordHash.verify(req.body.password, rows[0].password)) {
                     crypto.randomBytes(256, (err, buf) => {
-                        if (err) return res.status(500).end();
+                        if (err) return res.json(500);
                         else {
                             const token = buf.toString('hex');
                             db.execute('INSERT INTO accesstokens SET userid = ?, token = ?', [rows[0].id, token], (insError) => {
-                                if (insError) return res.status(500).end();
+                                if (insError) return res.json(500);
                                 else return res.send({ "ID": rows[0].id, "AccessToken": token });
                             });
                         }
