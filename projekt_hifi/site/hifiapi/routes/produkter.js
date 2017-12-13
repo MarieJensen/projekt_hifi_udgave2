@@ -46,37 +46,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
     });
 
-
-
-    // app.post('/produkt', security.isAuthenticated, function (req, res, next) { // selve routet som har post metoden. Her oprettes produkter.
-
-    //     let navn = req.body.navn;
-    //     let pris = req.body.pris;
-    //     let beskrivelse = req.body.beskrivelse;
-    //     let kategori_id = req.body.kategori_id;
-    //     let producent_id = req.body.producent_id;
-    //     let billede = req.body.billede;
-    //     console.log(navn);
-
-    //     //    console.log(navn);
-    //     //     console.log(email);
-    //     //     console.log(besked);
-
-    //     let sql = `INSERT INTO produkter(ID, navn, pris, beskrivelse, fk_kategori_id, fk_producent, billede) VALUES (null,?,?,?,?,?,"pladespiller.jpg")`;
-
-    //     db.query(sql, [navn, pris, beskrivelse, kategori_id, producent_id, billede], function (err, data) {
-
-    //         if (err) {
-    //             console.log(err);
-    //         } else {
-    //             res.send("Ok");
-    //         }
-    //     })
-
-    // });
-
-
-    app.post('/produkt', security.isAuthenticated, (req, res, next) => {
+    app.post('/produkt', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
 
         let image = 'no-image.png';
 
@@ -124,14 +94,14 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
     app.put('/produkt/:id', security.isAuthenticated, function (req, res, next) { // selve routet som har put metoden. Her opdateres produkter.
 
-        let navn = req.body.navn;
-        let pris = req.body.pris;
-        let beskrivelse = req.body.beskrivelse;
-        let kategori_id = req.body.kategori_id;
-        let producent_id = req.body.producent_id;
+        let navn = req.body.navn; //variabel som går ind i html og finder id'et navn
+        let pris = req.body.pris; //variabel som går ind i html og finder id'et pris
+        let beskrivelse = req.body.beskrivelse; //variabel som går ind i html og finder id'et beskrivelse
+        let kategori_id = req.body.kategori_id; //variabel som går ind i html og finder id'et kategori_id
+        let producent_id = req.body.producent_id; //variabel som går ind i html og finder id'et producent_id
         console.log(navn, kategori_id, producent_id);
 
-        let sql = `UPDATE produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=? WHERE ID=?`;
+        let sql = `UPDATE produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=? WHERE ID=?`; // ? gør at der ikke kan komme værdier ind databasen
 
         db.query(sql, [navn, pris, beskrivelse, kategori_id, producent_id, req.params.id], function (err, data) {
 
@@ -161,7 +131,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
     });
 
 
-    app.get('/images/:name', (req, res, next) => {
+    app.get('/images/:name', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen
         // det er kun jpg eller png filer jeg ønsker at tillade adgang til her
         if (path.extname(req.params.name) == '.jpg' || path.extname(req.params.name) == '.png' || path.extname(req.params.name) == '.gif') {
             // forsøg at læs billede filen fra images mappen...
