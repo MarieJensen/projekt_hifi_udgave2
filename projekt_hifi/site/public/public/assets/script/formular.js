@@ -34,7 +34,7 @@ document.querySelector('#gem').addEventListener('click', (event) => { // .queryS
             headers: headers,
             body: `{"navn":"${navn}","email":"${email}","besked":"${besked}" }`,
             cache: 'no-cache',
-            mode: 'no-cors'
+            mode: 'cors'
         };
         console.log('hejhejhej');
         let request = new Request('http://188.226.158.18:3001/create', init); // API'et/routet, init er variablen fra ovenover.
