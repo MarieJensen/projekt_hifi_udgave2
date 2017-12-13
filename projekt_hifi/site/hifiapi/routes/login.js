@@ -1,4 +1,4 @@
-const db = require('../config/sql').connect();
+const db = require('../config/sql').connect(); // connect med database
 const passwordHash = require('password-hash');
 const crypto = require('crypto');
 

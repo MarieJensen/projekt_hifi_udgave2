@@ -1,4 +1,4 @@
-const db = require('../config/sql').connect();
+const db = require('../config/sql').connect(); // connect med database
 const security = require('../services/security');
 
 module.exports = (app) => { // betyder at andre filer kan hente funktionen vha. req

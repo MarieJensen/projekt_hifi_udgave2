@@ -1,10 +1,11 @@
-const db = require('../config/sql').connect();
+const db = require('../config/sql').connect(); // connect med database
 const security = require('../services/security');
 const fs = require('fs');
 const path = require('path');
 
 module.exports = function (app) { // betyder at andre filer kan hente funktionen vha. req
     app.get('/produkter', function (req, res) { // selve routet som har get metoden. Her vises alle produkter.
+        // db.query indeholder en sql sætning
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede, kategori.kategori AS type, producent.producent 
                     FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.ID 
                     INNER JOIN producent ON produkter.fk_producent = producent.ID ORDER BY kategori.kategori
@@ -15,12 +16,14 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
 
     app.get('/produkt/:id', function (req, res, id) { // selve routet som har get metoden. Her vises et produkt. 
+        // db.query indeholder en sql sætning
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede FROM produkter where produkter.id = ?`, [req.params.id], function (err, data) {
             res.send(data);
         })
     });
 
     app.get('/produkter/:id', function (req, res, id) { // selve routet som har get metoden. Her vises kategori liste
+        // db.query indeholder en sql sætning
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede, kategori.kategori AS type, producent.producent FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.ID INNER JOIN producent ON produkter.fk_producent = producent.ID where produkter.fk_kategori_id = ?`, [req.params.id], function (err, data) {
             res.send(data);
         })
@@ -33,8 +36,10 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
         console.log(kategori);
 
+        // variabel som indeholder en sql sætning
         let sql = `INSERT INTO kategori(ID,kategori)values(null,?)`;
 
+        // db.query tager fat i variablen sql ovenover og siger at det er værdien kategori i databasen som der er tale om
         db.query(sql, [kategori], function (err, data) {
 
             if (err) {
@@ -50,6 +55,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
         let image = 'no-image.png';
 
+        // variabel som indeholder en sql sætning
         let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
 
         let name = (req.body.navn == undefined ? '' : req.body.navn);
@@ -101,8 +107,10 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
         let producent_id = req.body.producent_id; //variabel som går ind i html og finder id'et producent_id
         console.log(navn, kategori_id, producent_id);
 
+        // variabel som indeholder en sql sætning
         let sql = `UPDATE produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=? WHERE ID=?`; // ? gør at der ikke kan komme værdier ind databasen
 
+        // db.query tager fat i variablen sql ovenover og siger at det er værdierne navn, pris, beskrivelse, kategori_id og producent_id i databasen som der er tale om
         db.query(sql, [navn, pris, beskrivelse, kategori_id, producent_id, req.params.id], function (err, data) {
 
             if (err) {
@@ -117,6 +125,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
     app.del('/produkt/:id', security.isAuthenticated, function (req, res, next) { // selve routet som har delete metoden. Her slettes produkter.
 
+         // variabel som indeholder en sql sætning
         let sql = `DELETE FROM produkter WHERE ID=?`;
 
         db.query(sql, [req.params.id], function (err, data) {
