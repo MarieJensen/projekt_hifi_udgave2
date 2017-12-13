@@ -212,7 +212,7 @@ document.querySelector('#gemm').addEventListener('click', (event2) => { // .quer
     } else if (producent_id == "") {
         alert("Angiv en producent");
     } else {
-        let url = `http://188.226.158.18:3001/produkt/`;
+        let url = `http://188.226.158.18:3001/produkt`;
         let form = document.querySelector('#produktform form');
         let data = new FormData(form);
 
