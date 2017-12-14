@@ -228,7 +228,8 @@ document.querySelector('#gemm').addEventListener('click', (event2) => { // .quer
         let request = new Request(url, init); 
         console.log('hhhhhh');
         fetch(request) // fetch udskriver API'et
-            .then(response => { console.log(response) }).catch(err => { console.log(err) });
+            .then(response => { window.location.replace('admin.html');
+            console.log(response) }).catch(err => { console.log(err) });
         console.log('ooooo');
     }
 });
