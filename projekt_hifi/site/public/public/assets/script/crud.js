@@ -178,7 +178,8 @@ function henteprodukt(id) {
                         let request = new Request('http://188.226.158.18:3001/produkt/' + id, init); // API'et/routet, init er variablen fra ovenover. 
                         console.log('hhhhhh');
                         fetch(request) // fetch udskriver API'et
-                            .then(response => { console.log(response) }).catch(err => { console.log(err) }); 
+                            .then(response => {  window.location.replace('admin.html');
+                             console.log(response) }).catch(err => { console.log(err) }); 
                         console.log('ooooo');
                     }
                 });
@@ -262,7 +263,8 @@ document.querySelector('#gemmm').addEventListener('click', (event2) => { // .que
         let request = new Request('http://188.226.158.18:3001/opretkategori', init); // API'et/routet, init er variablen fra ovenover.
         console.log('hhhhhh');
         fetch(request) // fetch udskriver API'et
-            .then(response => { console.log(response) }).catch(err => { console.log(err) });
+            .then(response => {  window.location.replace('admin.html');
+            console.log(response) }).catch(err => { console.log(err) });
         console.log('ooooo');
     }
 });
@@ -302,6 +304,7 @@ function sletprodukt(id) {
             })
             .then((data) => {
                 // nu er json objektet lagt ind i data variablen, udskriv data
+                window.location.replace('admin.html');
                 console.log(data);
 
             })
