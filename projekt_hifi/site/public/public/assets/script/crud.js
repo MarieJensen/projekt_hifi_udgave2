@@ -10,7 +10,7 @@
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function henteData(type = 0) {
-    fetch('http://188.226.158.18:3001/produkter', {  // API'et/routet, fetch udskriver API'et
+    fetch('http://188.226.158.18:3001/produkter', {  // API’et med route, /produkter er routenavnet, fetch udskriver API'et
         'method': 'GET', // fetch har get metoden
         'mode': 'cors',
         'cache': 'default'
@@ -74,7 +74,7 @@ function henteData(type = 0) {
 // Visning af et produkt med opdatering af eksisterende produkter på admin siden
 
 function henteprodukt(id) {
-    let url = 'http://188.226.158.18:3001/produkt'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkt'; // API’et med route, /produkt er routenavnet  
     if (id != undefined) {
         url += '/' + id;
     }
@@ -175,7 +175,7 @@ function henteprodukt(id) {
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
-                        let request = new Request('http://188.226.158.18:3001/produkt/' + id, init); // API'et/routet, init er variablen fra ovenover. 
+                        let request = new Request('http://188.226.158.18:3001/produkt/' + id, init); // API’et med route, /produkt er routenavnet  , init er variablen fra ovenover. 
                         console.log('hhhhhh');
                         fetch(request) // fetch udskriver API'et
                             .then(response => {  window.location.replace('admin.html');
@@ -213,7 +213,7 @@ document.querySelector('#gemm').addEventListener('click', (event2) => { // .quer
     } else if (producent_id == "") {
         alert("Angiv en producent");
     } else {
-        let url = `http://188.226.158.18:3001/produkt`;
+        let url = `http://188.226.158.18:3001/produkt`; // API’et med route, /produkt er routenavnet  
         let form = document.querySelector('#produktform form');
         let data = new FormData(form);
 
@@ -260,7 +260,7 @@ document.querySelector('#gemmm').addEventListener('click', (event2) => { // .que
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://188.226.158.18:3001/opretkategori', init); // API'et/routet, init er variablen fra ovenover.
+        let request = new Request('http://188.226.158.18:3001/opretkategori', init); // API’et med route, /opretkategori er routenavnet  , init er variablen fra ovenover.
         console.log('hhhhhh');
         fetch(request) // fetch udskriver API'et
             .then(response => {  window.location.replace('admin.html');
@@ -278,7 +278,7 @@ document.querySelector('#gemmm').addEventListener('click', (event2) => { // .que
 function sletprodukt(id) {
     if (confirm('Er du sikker på at du vil slette?')) { // besked til brugeren
 
-        let url = 'http://188.226.158.18:3001/produkt'; // API'et/routet
+        let url = 'http://188.226.158.18:3001/produkt'; // API’et med route, /produkt er routenavnet  
         if (id != undefined) {
             url += '/' + id;
         }

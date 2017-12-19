@@ -36,7 +36,7 @@ window.addEventListener("resize", equalColumns, true);
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function hentData(type = 0) {
-    let url = 'http://188.226.158.18:3001/produkter'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkter'; // API’et med route, /produkter er routenavnet  
     if (type > 0) url += '/' + type;
     fetch(url) // fetch udskriver API'et
         .then((response) => {
@@ -84,7 +84,7 @@ document.querySelector('#soge').addEventListener('input', (event) => { // tager 
 })
 
 function sogebar(type) {
-    let url = 'http://188.226.158.18:3001/produkter/sog'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkter/sog'; // API’et med route, /produkter/sog er routenavnet  
     url += '/' + type;
     fetch(url) // fetch udskriver API'et
         .then((response) => {
@@ -117,7 +117,7 @@ function sogebar(type) {
 // Visning af et produkt på produkt siden
 
 function hentprodukt(id) {
-    let url = 'http://188.226.158.18:3001/produkt'; // API'et/routet
+    let url = 'http://188.226.158.18:3001/produkt'; // API’et med route, /produkt er routenavnet  
     if (id != undefined) {
         url += '/' + id;
     }

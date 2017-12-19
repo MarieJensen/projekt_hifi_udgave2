@@ -1,5 +1,5 @@
-const db = require('../config/sql').connect(); // connect med database
-const security = require('../services/security');
+const db = require('../config/sql').connect(); // connect med database, //require() er indbygget i Node.js for at indlæse moduler. require retunerer en værdi, afhængig af om module exposes bruger exports eller module.exports.
+const security = require('../services/security'); // konstant som tager fat i services mappen hvor security filen er
 const fs = require('fs');
 const path = require('path');
 
@@ -55,8 +55,8 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
         let image = 'no-image.png';
 
-        // variabel som indeholder en sql sætning
-        let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
+        // variabel som indeholder en sql sætning, Der bliver indsat de værdier man har valgt på admin siden i spørgsmålstegnene
+        let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`; // ? gør at der ikke kan komme værdier ind databasen som ikke skal der ind. Det er så man ikke kan lave SQL injections, Ellers kan man skrive ren SQL i der hvor den indsender fra, men ? gør så man undgår det
 
         let name = (req.body.navn == undefined ? '' : req.body.navn);
         let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
@@ -107,8 +107,8 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
         let producent_id = req.body.producent_id; //variabel som går ind i html og finder id'et producent_id
         console.log(navn, kategori_id, producent_id);
 
-        // variabel som indeholder en sql sætning
-        let sql = `UPDATE produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=? WHERE ID=?`; // ? gør at der ikke kan komme værdier ind databasen
+        // variabel som indeholder en sql sætning, Der bliver indsat de værdier man har valgt på admin siden i spørgsmålstegnene
+        let sql = `UPDATE produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=? WHERE ID=?`; // ? gør at der ikke kan komme værdier ind databasen som ikke skal der ind
 
         // db.query tager fat i variablen sql ovenover og siger at det er værdierne navn, pris, beskrivelse, kategori_id og producent_id i databasen som der er tale om
         db.query(sql, [navn, pris, beskrivelse, kategori_id, producent_id, req.params.id], function (err, data) {

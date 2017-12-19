@@ -11,7 +11,7 @@
                 'password': form.password.value
             });
 
-            fetch('http://188.226.158.18:3001/login', { // API'et/routet, fetch udskriver API'et
+            fetch('http://188.226.158.18:3001/login', { // API’et med route, /login er routenavnet, fetch udskriver API'et
                 'method': 'POST', // API'et/routet indeholder post metoden
                 'headers': {
                     'Accept': 'application/json',

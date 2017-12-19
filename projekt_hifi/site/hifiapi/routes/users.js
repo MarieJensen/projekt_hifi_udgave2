@@ -1,5 +1,5 @@
-const db = require('../config/sql').connect(); // connect med database
-const security = require('../services/security');
+const db = require('../config/sql').connect(); // connect med database, //require() er indbygget i Node.js for at indlæse moduler. require retunerer en værdi, afhængig af om module exposes bruger exports eller module.exports.
+const security = require('../services/security'); // konstant som tager fat i services mappen hvor security filen er
 
 module.exports = (app) => { // betyder at andre filer kan hente funktionen vha. req
     app.get('/users', security.isAuthenticated, (req, res, next) => { // selve routet som har get metoden

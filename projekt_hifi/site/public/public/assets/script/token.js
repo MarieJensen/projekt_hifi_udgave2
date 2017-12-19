@@ -10,7 +10,7 @@
             const template = document.querySelector('template');
             const userElem = template.content.querySelector('.userInfo');
             console.log(localStorage.getItem('token'));
-            fetch('http://188.226.158.18:3001/users', { // API'et/routet, fetch udskriver API'et
+            fetch('http://188.226.158.18:3001/users', { // API’et med route, /users er routenavnet, fetch udskriver API'et
                 'method': 'GET', // API'et/routet har get metoden
                 'headers': {
                     'Authorization': localStorage.getItem('token'), // sikkerhed, så at det kun er butikkens administrator(er) der har adgang til admin siden. 
