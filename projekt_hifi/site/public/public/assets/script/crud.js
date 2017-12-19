@@ -175,7 +175,7 @@ function henteprodukt(id) {
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
-                        let request = new Request('http://188.226.158.18:3001/produkt/' + id, init); // API’et med route, /produkt er routenavnet  , init er variablen fra ovenover. 
+                        let request = new Request('http://188.226.158.18:3001/produkt/' + id, init); // API’et med route, /produkt er routenavnet, init er variablen fra ovenover, id er fra funktionen henteprodukt(id) som er øverst. 
                         console.log('hhhhhh');
                         fetch(request) // fetch udskriver API'et
                             .then(response => {  window.location.replace('admin.html');
@@ -215,18 +215,18 @@ document.querySelector('#gemm').addEventListener('click', (event2) => { // .quer
     } else {
         let url = `http://188.226.158.18:3001/produkt`; // API’et med route, /produkt er routenavnet  
         let form = document.querySelector('#produktform form');
-        let data = new FormData(form);
+        let data = new FormData(form); // tager fat i variablen form ovenover.
 
-        let init = {
+        let init = { // variabel som indeholder metoden post, der bliver postet til databasen. 
             'method': 'post',
             'headers': {
                 'Authorization': localStorage.getItem('token'),
                 'userID': localStorage.getItem('userid')
             },
             'body': data,
-            'cache': 'no-cache'
+            'cache': 'no-cache' 
         };
-        let request = new Request(url, init); 
+        let request = new Request(url, init); // variabel som indeholder url/API'et og init, request havner nede i fetch  
         console.log('hhhhhh');
         fetch(request) // fetch udskriver API'et
             .then(response => { window.location.replace('admin.html');
@@ -296,7 +296,7 @@ function sletprodukt(id) {
             mode: 'cors'
         };
 
-        let request = new Request(url, init);
+        let request = new Request(url, init); // variabel som indeholder url/API'et og init, request havner i fetch
         fetch(request) // fetch udskriver API'et
             .then((response) => {
                 // grib svarets indhold (body) og send det som et json objekt til næste .then()

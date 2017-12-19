@@ -3,7 +3,7 @@ const db = require('../config/sql').connect(); // connect med database, require(
 
 module.exports = function (app) { // betyder at andre filer kan hente funktionen vha. req
 
-    app.post('/create', function (req, res) { // selve routet som har post metoden
+    app.post('/create', function (req, res) { // API med route, selve routet er /create som har post metoden. Alt inden i {} er en del af API'et
 
         let navn = req.body.navn; // variabel som går ind i html og finder id'et navn
         let email = req.body.email; // variabel som går ind i html og finder id'et email

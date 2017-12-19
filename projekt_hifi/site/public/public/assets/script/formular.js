@@ -37,7 +37,7 @@ document.querySelector('#gem').addEventListener('click', (event) => { // .queryS
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://188.226.158.18:3001/create', init); // API’et med route, /create er routenavnet  , init er variablen fra ovenover.
+        let request = new Request('http://188.226.158.18:3001/create', init); // API’et med route, /create er routenavnet, init er variablen fra ovenover.
         console.log('hhhhhh');
         fetch(request) // fetch udskriver API'et
             .then(response => { console.log(response) }).catch(err => { console.log(err) });

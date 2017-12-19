@@ -5,7 +5,7 @@ const crypto = require('crypto');
 
 module.exports = (app) => { // betyder at andre filer kan hente funktionen vha. req
     
-    app.post('/login', (req, res) => { // selve routet som har post metoden
+    app.post('/login', (req, res) => { // API med route, selve routet er /login som har post metoden. Alt inden i {} er en del af API'et
         if (req.body.password !== '' && req.body.username !== '') {
             console.log(passwordHash.generate(req.body.password));
             db.execute('SELECT id, password FROM users WHERE username = ?', [req.body.username], (selError, rows) => {

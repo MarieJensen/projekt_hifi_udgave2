@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function (app) { // betyder at andre filer kan hente funktionen vha. req
-    app.get('/produkter', function (req, res) { // selve routet som har get metoden. Her vises alle produkter.
+    app.get('/produkter', function (req, res) { // Her vises alle produkter. API med route, selve routet er /produkter som har get metoden. Alt inden i {} er en del af API'et
         // db.query indeholder en sql sætning
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede, kategori.kategori AS type, producent.producent 
                     FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.ID 
@@ -15,14 +15,14 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
     });
 
 
-    app.get('/produkt/:id', function (req, res, id) { // selve routet som har get metoden. Her vises et produkt. 
+    app.get('/produkt/:id', function (req, res, id) { // Her vises et produkt. API med route, selve routet er /produkt som har get metoden. Alt inden i {} er en del af API'et
         // db.query indeholder en sql sætning
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede FROM produkter where produkter.id = ?`, [req.params.id], function (err, data) {
             res.send(data);
         })
     });
 
-    app.get('/produkter/:id', function (req, res, id) { // selve routet som har get metoden. Her vises kategori liste
+    app.get('/produkter/:id', function (req, res, id) { // Her vises kategori liste. API med route, selve routet er /produkter som har get metoden. Alt inden i {} er en del af API'et
         // db.query indeholder en sql sætning
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede, kategori.kategori AS type, producent.producent FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.ID INNER JOIN producent ON produkter.fk_producent = producent.ID where produkter.fk_kategori_id = ?`, [req.params.id], function (err, data) {
             res.send(data);
@@ -30,7 +30,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
     });
 
 
-    app.post('/opretkategori', security.isAuthenticated, function (req, res, next) { // Route som opretter en ny kategori
+    app.post('/opretkategori', security.isAuthenticated, function (req, res, next) { // Route som opretter en ny kategori. API med route, selve routet er /opretkategori som har post metoden. Alt inden i {} er en del af API'et
 
         let kategori = req.body.kategori;
 
@@ -51,7 +51,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
 
     });
 
-    app.post('/produkt', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
+    app.post('/produkt', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder. API med route, selve routet er /produkt som har post metoden. Alt inden i {} er en del af API'et 
 
         let image = 'no-image.png';
 
@@ -98,7 +98,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
     });
 
 
-    app.put('/produkt/:id', security.isAuthenticated, function (req, res, next) { // selve routet som har put metoden. Her opdateres produkter.
+    app.put('/produkt/:id', security.isAuthenticated, function (req, res, next) { // Her opdateres produkter. API med route, selve routet er /produkt som har put metoden. Alt inden i {} er en del af API'et
 
         let navn = req.body.navn; //variabel som går ind i html og finder id'et navn
         let pris = req.body.pris; //variabel som går ind i html og finder id'et pris
@@ -123,7 +123,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
     });
 
 
-    app.del('/produkt/:id', security.isAuthenticated, function (req, res, next) { // selve routet som har delete metoden. Her slettes produkter.
+    app.del('/produkt/:id', security.isAuthenticated, function (req, res, next) { // Her slettes produkter. API med route, selve routet er /produkt som har del metoden. Alt inden i {} er en del af API'et
 
          // variabel som indeholder en sql sætning
         let sql = `DELETE FROM produkter WHERE ID=?`;
@@ -140,7 +140,7 @@ module.exports = function (app) { // betyder at andre filer kan hente funktionen
     });
 
 
-    app.get('/images/:name', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen
+    app.get('/images/:name', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen. API med route, selve routet er /images som har get metoden. Alt inden i {} er en del af API'et
         // det er kun jpg eller png filer jeg ønsker at tillade adgang til her
         if (path.extname(req.params.name) == '.jpg' || path.extname(req.params.name) == '.png' || path.extname(req.params.name) == '.gif') {
             // forsøg at læs billede filen fra images mappen...
